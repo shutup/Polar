@@ -249,13 +249,6 @@ public class MainActivity extends AppCompatActivity implements Constants {
 
     private void disableAllSelectedApp() {
         ArrayList<String> pkgs = new ArrayList<>();
-        for (PInfo p : mPInfos) {
-            if (p.isEnable()) {
-//                pkgs.add("pm enable" + p.getPkgName());
-            } else {
-                pkgs.add("pm disable " + p.getPkgName());
-            }
-        }
         for (PInfo p : disableAppLists) {
             pkgs.add("pm disable " + p.getPkgName());
         }
@@ -264,12 +257,7 @@ public class MainActivity extends AppCompatActivity implements Constants {
             if (BuildConfig.DEBUG) Log.d("MainActivity", p.getPkgName());
         }
         disableApps(pkgs);
-//        Realm.getDefaultInstance().executeTransaction(new Realm.Transaction() {
-//            @Override
-//            public void execute(Realm realm) {
-//                realm.insertOrUpdate(mPInfos);
-//            }
-//        });
+        saveStatusToLocal();
         mHandler.sendEmptyMessage(MSG_REFRESH_UI);
         disableAppLists.clear();
         enableApplists.clear();
@@ -278,7 +266,6 @@ public class MainActivity extends AppCompatActivity implements Constants {
     private void enableSelectedAppAndRun(String pkgName, int index) {
         enableApp(pkgName);
         mHandler.sendEmptyMessage(MSG_REFRESH_UI);
-        mPInfos.get(index).setTemp(true);
         lanuchApp(pkgName);
     }
 
