@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="@dimen/item_width"
+              android:layout_height="@dimen/item_width"
+              android:orientation="vertical"
+              android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/pkg_status"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_icon_ice"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/pkg_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <CheckBox
+            android:id="@+id/pkg_enable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="end"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/pkg_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/pkg_icon"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@id/pkg_icon"
+            android:layout_toEndOf="@id/pkg_status"
+            android:layout_toRightOf="@id/pkg_status"
+            android:gravity="center"
+            android:lines="1"
+            android:textSize="12sp"
+            tools:text="123"/>
+    </RelativeLayout>
+</LinearLayout>
